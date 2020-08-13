@@ -1,24 +1,39 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+
+import {Card} from './components/Card';
+
+interface Post {
+  title: string,
+  img: string
+}
+
+const cards: ReadonlyArray<Post> = [
+  {
+    "title": "Post 2",
+    "img": "https://picsum.photos/300/400"
+  },
+  {
+    "title": "G Money",
+    "img": "https://picsum.photos/300/400"
+  },
+  {
+    "title": "lit",
+    "img": "https://picsum.photos/300/400"
+  },
+  {
+    "title": "heeeyoo",
+    "img": "https://picsum.photos/300/400"
+  }
+] 
+
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Card title="Example Post" img="https://picsum.photos/id/237/300/400" />
+      {cards.map(c => {
+        return (<Card title={c.title} img={c.img} />)
+      })}
     </div>
   );
 }
